@@ -1,0 +1,29 @@
+.chatHeaderContainer{
+    width: 80vw;
+    height: 10vh;
+    /*position: fixed;*/
+    top: 10vh;
+    left: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    border-bottom: 1px solid var(--main-bg-color-lighter);
+}
+.headerUsericon{
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+.activeHeaderUsericon{
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    margin-left: 25px;
+    border: 4px solid green
+}
+.headerUsername{
+    color: white;
+    font-size: 24px;
+}

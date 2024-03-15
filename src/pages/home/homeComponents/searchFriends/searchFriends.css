@@ -1,0 +1,53 @@
+.homepageSearchContainer{
+    width: 30vw;
+    height: 90vh;
+    border-left: 1px solid yellowgreen;
+    border-right: 1px solid yellowgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: yellowgreen;
+}
+.homepageSearchContainerInput{
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--main-bg-color-lighter);
+    width: 20vw;
+    color: yellowgreen;
+    padding: 15px;
+    font-size: 26px;
+    margin-top: 50px;
+}
+.homepageSearchContainerInput:focus{
+    outline: none;
+}
+.homepageSearchFriendContainer{
+    margin-top: 25px;
+    width: 100%;
+    height: 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 25px;
+    cursor: pointer;
+}
+.homepageSearchFriendContainer:hover{
+    background-color: rgb(57, 77, 18);
+    transition: all 0.5s linear;
+}
+.homepageSearchFriendIcon{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+}
+.homepageSearchFriendName{
+    font-size: 24px;
+    width: 15vw;
+}
+.findNewFriend{
+    margin-top: 50px;
+    font-size: 32px;
+    font-style: oblique;
+    font-weight: 50;
+    color: rgb(100, 121, 58);
+}

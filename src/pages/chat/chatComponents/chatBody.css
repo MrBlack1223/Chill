@@ -1,0 +1,57 @@
+.chatBodyContainer{
+    position: fixed;
+    top: 20vh;
+    left: 20vw;
+    height: 73vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+.recievedMessageContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.sendMessageContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.message{
+    width: fit-content;
+    max-width: 40vw;
+    padding: 10px 20px;
+    min-height: 3vh;
+    height: fit-content;
+    word-wrap: break-word;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(67, 98, 7);
+    border-radius: 10px;
+    margin-right: 2vw;
+    margin-top: 20px;
+}
+.receivedMessage{
+    width: fit-content;
+    word-wrap: break-word;
+    max-width: 40vw;
+    padding: 10px 20px;
+    min-height: 3vh;
+    font-size: 24px;
+    color: white;
+    background-color: #646464;
+    border-radius: 10px;
+    margin-left: 2vw;
+    margin-top: 20px;
+}
+.recieveTime{
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(21, 19, 19);
+}

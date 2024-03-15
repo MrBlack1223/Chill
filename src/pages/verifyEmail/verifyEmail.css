@@ -1,0 +1,37 @@
+.verificationContainer{
+    width: 100%;
+    height: 90vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.verificationHeader{
+    color: white;
+    margin: 0;
+}
+.verificationButton{
+    width: 300px;
+    height: 100px;
+    font-size: 36px;
+    font-weight: bolder;
+    background-color: #345e35;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+.verificationButton:hover{
+    background-color: #468547;
+}
+.verificationText{
+    color: white;
+    font-size: 68px;
+}
+.verificationLink{
+    color: rgb(105, 102, 102);
+    font-size: 34px;
+    text-decoration: none;
+}

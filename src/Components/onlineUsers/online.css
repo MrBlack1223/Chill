@@ -1,0 +1,12 @@
+.onlineUsersContainer{
+    position:fixed;
+    top: 10vh;
+    left: 0;
+    width: 20vw;
+    height: 90vh;
+    border-right: solid 1px var(--main-border-color);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 10px;
+}

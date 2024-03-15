@@ -1,0 +1,27 @@
+.inputMessageContainer{
+    width: 80vw;
+    height: 5vh;
+    position: fixed;
+    top: 94vh;
+    left: 20vw;
+    display: flex;
+}
+.inputMessage{
+    background-color: rgb(71, 70, 70);
+    border:none;
+    padding: 15px;
+    border-radius: 25px;
+    width: 76vw;
+    margin-left: 1vw;
+    font-size: 20px;
+    color: white
+}
+.inputMessage:focus{
+    outline: none;
+}
+.sendMessageButton{
+    background-color: inherit;
+    border: none;
+    height:100%;
+    width: 3vw;
+}

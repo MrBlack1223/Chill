@@ -1,0 +1,11 @@
+.suggestedFriendsContainer{
+    width: 35vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.suggestedFriendsHeader{
+    color: yellowgreen;
+}
