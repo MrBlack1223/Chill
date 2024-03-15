@@ -4,7 +4,7 @@ import { AppDispatch } from '../../Redux/store';
 import { sendMessage } from '../../Redux/chatSlice';
 import { NavigateFunction } from 'react-router-dom';
 
-export const SERVER = "http://localhost:5000"
+export const SERVER = "https://chill-api.onrender.com"
 
 export const showMessage = (msg: string) =>{
     toast.success(msg,{
