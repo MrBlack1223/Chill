@@ -8,7 +8,11 @@ const socketMiddleware: Middleware = store => {
     const isConnectionEstablished = store.getState().user.connected;
     return next => action =>{
         if(userActions.connect.match(action) && !isConnectionEstablished) {
-            socket = io("wss://elemental-mud-pincushion.glitch.me")
+            socket = io("wss://elemental-mud-pincushion.glitch.me",{
+                headers:{
+                    "user-agent":"Mozilla"
+                }
+            })
             socket.on('connect', () => {
                 store.dispatch(userActions.connectionEstablished(true));
                 socket.emit("addUser",store.getState().user._id)
