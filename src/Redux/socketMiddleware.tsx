@@ -28,7 +28,6 @@ const socketMiddleware: Middleware = store => {
             })
             socket.on("friendRemovedYou",({friend})=>{
                 if(friend.uerId !== store.getState().user._id){
-                    console.log(friend.userId)
                     store.dispatch(userActions.friendRemovedYou(friend.userId))
                 }
             })
@@ -54,7 +53,9 @@ const socketMiddleware: Middleware = store => {
         }
         // Logout
         else if(userActions.logout.match(action)){
-                socket.disconnect()
+            store.dispatch(userActions.connectionEstablished(false))
+            socket.disconnect();
+
         }
         // Friend Request
         else if(userActions.addFriend.match(action)){

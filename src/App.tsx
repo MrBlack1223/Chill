@@ -12,6 +12,8 @@ import { useDispatch } from 'react-redux';
 import { connect } from './Redux/UserSlice';
 import { ToastContainer } from 'react-toastify';
 import ChangePassword from './pages/home/homeComponents/changePassword/changePassword';
+import { Protect } from './Components/utils/Protect';
+
 
 function App(){
  
@@ -25,13 +27,16 @@ function App(){
     <div> 
       <Header />
       <Routes>
-        <Route path = '/chat' element = {<MainChat />}/>
-        <Route path = '/' element={<Home />}/>
+        <Route element = {<Protect route = "/login"/>}>
+          <Route path = '/chat' element = {<MainChat />}/>
+          <Route path = '/' element={<Home />}/>
+          <Route path = '/changePassword' element = {<ChangePassword />} />
+        </Route>
         <Route path = '/login' element={<Login />} />
         <Route path = '/register' element={<Register />} />
         <Route path = '/user/:id/verify/:token' element = {<VerifyEmail />} />
         <Route path = '/remind' element = {<Remindpassword />} />
-        <Route path = '/changePassword' element = {<ChangePassword />} />
+        
       </Routes>
       <ToastContainer />
     </div>

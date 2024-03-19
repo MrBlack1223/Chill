@@ -20,8 +20,13 @@ const persistConfig = {
   version: 1,
   storage,
 }
+const persistConfig2 = {
+  key: 'root2',
+  version: 1,
+  storage,
+}
 const persistedReducer = persistReducer(persistConfig, UserSlice)
-const persistedReducer2 = persistReducer(persistConfig, chatSlice)
+const persistedReducer2 = persistReducer(persistConfig2, chatSlice)
 export const store = configureStore({
   reducer: {
     user: persistedReducer,

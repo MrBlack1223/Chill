@@ -7,7 +7,7 @@ import { format } from 'timeago.js';
 function ChatBody(){
 
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
-  const array = useSelector((state:RootState) => state.chat.messagesArray)
+  const array =  useSelector((state:RootState) => state.chat.messagesArray)
   const user = useSelector((state:RootState) => state.user._id)
 
   const scrollToBottom = () => {

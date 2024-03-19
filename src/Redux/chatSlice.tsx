@@ -12,14 +12,14 @@ export const chatSlice = createSlice({
     initialState,
     reducers: {
     //Set
-      setMessagesArray: (state,action)=>{
-        state.messagesArray = action.payload
+      setMessagesArray: (state,actions)=>{
+        state.messagesArray = actions.payload
       },
-      setOnlineUsers: (state,action)=>{
-        state.onlineUsers = action.payload
+      setOnlineUsers: (state,actions)=>{
+        state.onlineUsers = actions.payload
       },
-      setCurrentConv: (state,action)=>{
-        state.currentConv = action.payload
+      setCurrentConv: (state,actions)=>{
+        state.currentConv = actions.payload
       },
     //Clear
       clearMessagesArray: (state)=>{

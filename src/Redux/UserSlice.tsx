@@ -67,7 +67,7 @@ export const userSlice = createSlice({
       sendFriendRequest: (state,actions)=>{
 
       },
-      connect: (state)=>{
+      connect: ()=>{
 
       }
     }

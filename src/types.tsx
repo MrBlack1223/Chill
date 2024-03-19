@@ -68,3 +68,7 @@ export type DisplayUsersProps = {
     btn2?: any,
     fn2?: any,
 }
+export type ProtectectionComponentProps = {
+    route: string,
+    child?: JSX.Element
+}

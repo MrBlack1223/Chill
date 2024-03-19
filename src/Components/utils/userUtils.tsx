@@ -9,8 +9,8 @@ export const logoutUtils = async(dispatch: AppDispatch, navigate: NavigateFuncti
     try{
       const res = await axios.get(`${SERVER}/user/logout`,{ withCredentials: true })
       if(res.status === 204){
-        dispatch(logout())
         navigate('/login')
+        dispatch(logout())
       }
     }catch(e){
       errorMessage("Can't logout")
@@ -33,7 +33,7 @@ export const remindPasswordUtils = async (email: string)=>{
         }
     }
 }
-export const loginUtils = async(dispatch: AppDispatch, navigate: any, data: LoginCredentials, setEmailSend: React.Dispatch<React.SetStateAction<boolean>>)=>{
+export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunction, data: LoginCredentials, setEmailSend: React.Dispatch<React.SetStateAction<boolean>>)=>{
     try{
         const res = await axios.post(`${SERVER}/user/login`,data,{ withCredentials: true })
         dispatch(login(res.data))

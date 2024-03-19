@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { AppDispatch } from '../../Redux/store';
+import { AppDispatch, RootState } from '../../Redux/store';
 import { sendMessage } from '../../Redux/chatSlice';
 import { NavigateFunction } from 'react-router-dom';
 
