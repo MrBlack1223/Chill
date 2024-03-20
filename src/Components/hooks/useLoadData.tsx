@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 import { useEffect, useMemo, useState } from "react"
 import { SERVER } from "../utils/utils";
+import api from "../utils/api";
 
 interface FetchResult<T> {
   data: T;
@@ -20,7 +21,7 @@ const useLoadData = <T extends Partial<T>>(url: string, options: {}, runConditio
         const loadData = async () => {
           setLoading(true);
           try {
-            const response: AxiosResponse<T> = await axios.get(SERVER + url,correctOpt);
+            const response: AxiosResponse<T> = await api.get(url,correctOpt);
             setData(response.data);
           } catch (e) {
             const error = e as Error

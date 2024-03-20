@@ -1,14 +1,16 @@
 import axios from "axios"
 import { AppDispatch } from "../../Redux/store"
 import { connect, login, logout, setPassTemporary } from "../../Redux/UserSlice"
-import { SERVER, errorMessage, showMessage } from "./utils"
+import { errorMessage, showMessage } from "./utils"
 import { LoginCredentials, RegisterData } from "../../types"
 import { NavigateFunction } from "react-router-dom"
+import api from "./api"
 
 export const logoutUtils = async(dispatch: AppDispatch, navigate: NavigateFunction)=>{
     try{
-      const res = await axios.get(`${SERVER}/user/logout`,{ withCredentials: true })
+      const res = await api.get(`/user/logout`,{ withCredentials: true })
       if(res.status === 204){
+        localStorage.removeItem("refreshToken")
         navigate('/login')
         dispatch(logout())
       }
@@ -19,7 +21,7 @@ export const logoutUtils = async(dispatch: AppDispatch, navigate: NavigateFuncti
 
 export const remindPasswordUtils = async (email: string)=>{
     try{
-        const res = await axios.post(`${SERVER}/user/remind`,{email: email})
+        const res = await api.post(`/user/remind`,{email: email})
         if(res.status === 200) {
             showMessage('Check your e-mail')
         }
@@ -35,8 +37,9 @@ export const remindPasswordUtils = async (email: string)=>{
 }
 export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunction, data: LoginCredentials, setEmailSend: React.Dispatch<React.SetStateAction<boolean>>)=>{
     try{
-        const res = await axios.post(`${SERVER}/user/login`,data,{ withCredentials: true })
-        dispatch(login(res.data))
+        const res = await api.post(`/user/login`,data,{ withCredentials: true })
+        localStorage.setItem("refreshToken",res.data.refreshToken)
+        dispatch(login(res.data.user))
         dispatch(connect())
         if(res.data.isPassTemporary) return navigate('/changePassword')
         if(res.status === 200) return navigate('/')
@@ -56,7 +59,7 @@ export const changePasswordUtils = async(password: string, dispatch: AppDispatch
     try{
         if(password === password)
         {
-            const res = await axios.post(`${SERVER}/user/update/userPassword`,{password},{withCredentials:true})
+            const res = await api.post(`/user/update/userPassword`,{password},{withCredentials:true})
             
             dispatch(setPassTemporary(false))
             navigate('/')
@@ -74,7 +77,7 @@ export const changePasswordUtils = async(password: string, dispatch: AppDispatch
 }
 export const registerUtils = async(data:RegisterData, setEmailSend: React.Dispatch<React.SetStateAction<boolean>>, setData: React.Dispatch<React.SetStateAction<RegisterData>>,defaultData: RegisterData)=>{
     try{
-        const res = await axios.post(`${SERVER}/user`, data)
+        const res = await api.post(`/user`, data)
         if(res.status === 200) setEmailSend(true)
         setData(defaultData)
     }catch(err){

@@ -2,12 +2,13 @@ import axios from "axios"
 import { AppDispatch } from "../../Redux/store"
 import { addFriend, friendRequestConsidered, removeFriend, sendFriendRequest } from "../../Redux/UserSlice"
 import { SERVER, errorMessage, showMessage } from "./utils"
+import api from "./api"
 
 
 
 export const acceptRq = async (friendRq: string, dispatch: AppDispatch)=>{
     try{
-        const res = await axios.get(`${SERVER}/user/friends/add/${friendRq}`,{withCredentials: true})
+        const res = await api.get(`/user/friends/add/${friendRq}`,{withCredentials: true})
         if(res.status === 200){
           dispatch(friendRequestConsidered(friendRq))
           dispatch(addFriend(friendRq))
@@ -26,7 +27,7 @@ export const acceptRq = async (friendRq: string, dispatch: AppDispatch)=>{
 
 export const refuseRq = async (friendRq: string, dispatch: AppDispatch)=>{
     try{
-        const res = await axios.get(`${SERVER}/user/friends/declineRequest/${friendRq}`,{withCredentials: true})
+        const res = await api.get(`/user/friends/declineRequest/${friendRq}`,{withCredentials: true})
         if(res.status === 200){
           dispatch(friendRequestConsidered(friendRq))
           showMessage('Friend request removed')
@@ -44,7 +45,7 @@ export const refuseRq = async (friendRq: string, dispatch: AppDispatch)=>{
 
 export const sendRq = async(msg: string,id: string, dispatch: AppDispatch)=>{
     try{
-        await axios.get(`${SERVER}/user/friends/sendRequest/${id}`,{withCredentials:true})
+        await api.get(`/user/friends/sendRequest/${id}`,{withCredentials:true})
         dispatch(sendFriendRequest(id))
         showMessage(msg)
     }catch(err){
@@ -61,7 +62,7 @@ export const sendRq = async(msg: string,id: string, dispatch: AppDispatch)=>{
 
 export const removeF = async (msg: string,id: string, dispatch: AppDispatch)=>{
     try{
-        const res = await axios.get(`${SERVER}/user/friends/remove/${id}`,{withCredentials:true})
+        const res = await api.get(`/user/friends/remove/${id}`,{withCredentials:true})
         if(res.status === 200){
             showMessage(msg)
             dispatch(removeFriend(id))

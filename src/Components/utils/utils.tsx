@@ -3,8 +3,9 @@ import { toast } from 'react-toastify';
 import { AppDispatch, RootState } from '../../Redux/store';
 import { sendMessage } from '../../Redux/chatSlice';
 import { NavigateFunction } from 'react-router-dom';
+import api from './api';
 
-export const SERVER = "https://chill-api.onrender.com"
+export const SERVER = "http://localhost:5000"
 
 export const showMessage = (msg: string) =>{
     toast.success(msg,{
@@ -36,7 +37,7 @@ export const chatNav = (friend: string, navigate: NavigateFunction)=>{
 }
 export const sendMessageUtils = async (url: string, message: string, user: string, conversation: string, dispatch: AppDispatch)=>{
     try {
-        await axios.post(`${SERVER}/message/send/${url}/${conversation}`,{
+        await api.post(`/message/send/${url}/${conversation}`,{
         text: message
       }, {
         withCredentials: true
