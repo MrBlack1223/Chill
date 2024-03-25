@@ -35,12 +35,15 @@ export const remindPasswordUtils = async (email: string)=>{
         }
     }
 }
-export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunction, data: LoginCredentials, setEmailSend: React.Dispatch<React.SetStateAction<boolean>>)=>{
+export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunction, data: LoginCredentials,
+     setEmailSend: React.Dispatch<React.SetStateAction<boolean>>, setLoading:React.Dispatch<React.SetStateAction<boolean>>)=>{
     try{
+        setLoading(true)
         const res = await api.post(`/user/login`,data,{ withCredentials: true })
         localStorage.setItem("refreshToken",res.data.refreshToken)
         dispatch(login(res.data.user))
         dispatch(connect())
+        setLoading(false)
         if(res.data.isPassTemporary) return navigate('/changePassword')
         if(res.status === 200) return navigate('/')
     }catch(err){
@@ -48,6 +51,8 @@ export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunctio
             if(err.response?.status === 400) setEmailSend(true)
             if(err.response?.status === 401) errorMessage("User doesn't exist")
             if(err.response?.status === 403) errorMessage("Wrong credentials")
+                
+            
             return 
           }
         else{
