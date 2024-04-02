@@ -52,10 +52,11 @@ export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunctio
             if(err.response?.status === 401) errorMessage("User doesn't exist")
             if(err.response?.status === 403) errorMessage("Wrong credentials")
                 
-            
+            setLoading(false)
             return 
           }
         else{
+            setLoading(false)
             return
         }
     }
