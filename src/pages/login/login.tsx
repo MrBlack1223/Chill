@@ -7,7 +7,7 @@ import { loginUtils } from '../../Components/utils/userUtils';
 import UserLoader from '../../Components/onlineUsers/OnlineUsersComponents/userLoader';
 
 const defaultData = {
-    email:'',
+    login:'',
     password: ''
 }
 
@@ -40,8 +40,8 @@ function Login(){
             </div>
             <form className="login-card-form" onSubmit = {handleSubmit}>
                 <div className="form-item">
-                    <input type="text" placeholder="E-mail" disabled = {loading} name = 'email' 
-                        onChange={handleChange} value = {data?.email} required/>
+                    <input type="text" placeholder="Login" disabled = {loading} name = 'login' 
+                        onChange={handleChange} value = {data?.login} required/>
                 </div>
                 <div className="form-item">
                     <input type="password" placeholder="Password" disabled = {loading} name = 'password' 

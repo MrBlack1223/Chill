@@ -24,7 +24,7 @@ export type RegisterData = {
     password: string
   }
 export type LoginCredentials ={
-    email: string,
+    login: string,
     password: string
 }
 export type ChatFriend = {
