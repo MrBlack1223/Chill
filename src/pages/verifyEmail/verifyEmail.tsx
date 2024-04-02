@@ -1,10 +1,9 @@
 import './verifyEmail.css';
 import {useLocation} from 'react-router-dom'
-import axios from 'axios';
 import {useState} from 'react'
 import { ClipLoader } from 'react-spinners';
 import {Link} from 'react-router-dom'
-import { SERVER } from '../../Components/utils/utils';
+import api from '../../Components/utils/api';
 
 function VerifyEmail(){
   
@@ -16,7 +15,7 @@ function VerifyEmail(){
     const handleVerify = async()=>{
         try{
             setIsLoading(true)
-            await axios.get(`${SERVER}${location.pathname}`,{withCredentials: true})
+            await api.get(`${location.pathname}`,{withCredentials: true})
             setSucces(true)
             setIsLoading(false)
         }catch(e){
