@@ -5,7 +5,7 @@
     justify-content: flex-start;
     width: 35vw;
     height: 90vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     gap: 10px;
     color: yellowgreen
 }

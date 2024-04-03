@@ -7,6 +7,6 @@
     border-right: solid 1px var(--main-border-color);
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     gap: 10px;
 }
