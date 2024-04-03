@@ -44,7 +44,7 @@ export const loginUtils = async(dispatch: AppDispatch, navigate: NavigateFunctio
         dispatch(login(res.data.user))
         dispatch(connect())
         setLoading(false)
-        if(res.data.isPassTemporary) return navigate('/changePassword')
+        if(res.data.user.isPassTemporary) return navigate('/changePassword')
         if(res.status === 200) return navigate('/')
     }catch(err){
         if (axios.isAxiosError(err)) {
